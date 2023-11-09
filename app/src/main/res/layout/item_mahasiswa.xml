@@ -35,30 +35,49 @@
             >
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/txtNim"
-                android:text="NIM" />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/archivo"
+                android:text="NIM"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/txtNama"
-                android:text="Nama Lengkap" />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/archivo"
+                android:text="Nama Lengkap"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/txtUsia"
-                android:text="Usia" />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/archivo"
+                android:text="Usia"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/txtAlamat"
-                android:text="Alamat" />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/archivo"
+                android:text="Alamat"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/txtGender"
-                android:text="Gender" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/archivo"
+                android:text="Gender"
+                android:textColor="#000000"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
