@@ -2,6 +2,7 @@ package com.mzulsept.zulgetdata
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.RadioButton
 import android.widget.Toast
 import com.mzulsept.zulgetdata.network.NetworkConfig
 import com.mzulsept.zulgetdata.model.SubmitModel
@@ -29,7 +30,18 @@ class InputActivity : AppCompatActivity() {
         val namaLengkap = binding.txtNama.text.toString()
         val usia = binding.txtUsia.text.toString()
         val alamat = binding.txtAlamat.text.toString()
-        val gender = binding.txtGender.text.toString()
+//        val gender = binding.txtGender.text.toString()
+        // radio button
+        val rbPria: RadioButton = binding.rbPria
+        val rbWanita: RadioButton = binding.rbWanita
+
+        // validasi radiobutton pada jenisKelamin
+        val gender = when {
+            rbPria.isChecked -> "Pria"
+            rbWanita.isChecked -> "Wanita"
+            else -> "" // Jika tidak ada yang dipilih
+        }
+
         val retrofit = NetworkConfig().getService()
 
         if (namaLengkap.isNotEmpty() || usia.isNotEmpty()) {
@@ -52,7 +64,9 @@ class InputActivity : AppCompatActivity() {
                             binding.txtNama.text.clear()
                             binding.txtUsia.text.clear()
                             binding.txtAlamat.text.clear()
-                            binding.txtGender.text.clear()
+//                            binding.txtGender.text.clear()
+                            rbPria.isChecked = false
+                            rbWanita.isChecked = false
                         }
                     }
 

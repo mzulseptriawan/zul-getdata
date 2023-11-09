@@ -12,20 +12,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/archivo"
         android:text="Input Data Mahasiswa"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal" />
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/txtNim"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/archivo"
         android:hint="NIM"
         android:inputType="number" />
+
     <EditText
         android:id="@+id/txtNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/archivo"
         android:hint="Nama Lengkap"
         android:inputType="text" />
 
@@ -33,6 +38,7 @@
         android:id="@+id/txtUsia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/archivo"
         android:hint="Usia"
         android:inputType="number" />
 
@@ -40,19 +46,41 @@
         android:id="@+id/txtAlamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/archivo"
         android:hint="Alamat"
         android:inputType="text" />
 
-    <EditText
-        android:id="@+id/txtGender"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Jenis Kelamin"
-        android:inputType="text" />
+        android:fontFamily="@font/archivo"
+        android:text="Jenis Kelamin"></TextView>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbPria"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/archivo"
+            android:text="Pria" />
+
+        <RadioButton
+            android:id="@+id/rbWanita"
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/archivo"
+            android:text="Wanita" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/btnSimpan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Simpan" />
+        android:fontFamily="@font/archivo"
+        android:text="Simpan"
+        android:textSize="16sp" />
 </LinearLayout>
