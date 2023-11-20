@@ -30,7 +30,6 @@ class InputActivity : AppCompatActivity() {
         val namaLengkap = binding.txtNama.text.toString()
         val usia = binding.txtUsia.text.toString()
         val alamat = binding.txtAlamat.text.toString()
-//        val gender = binding.txtGender.text.toString()
         // radio button
         val rbPria: RadioButton = binding.rbPria
         val rbWanita: RadioButton = binding.rbWanita
@@ -44,17 +43,17 @@ class InputActivity : AppCompatActivity() {
 
         val retrofit = NetworkConfig().getService()
 
-        if (namaLengkap.isNotEmpty() || usia.isNotEmpty()) {
+        if (nim.isNotEmpty() || namaLengkap.isNotEmpty() || usia.isNotEmpty()) {
             retrofit.addMahasiswa(nim, namaLengkap, usia, alamat, gender)
                 .enqueue(object : Callback<SubmitModel>{
                     override fun onResponse (
                         call: Call<SubmitModel>,
                         response: Response<SubmitModel>
                     ) {
-                        if (response.isSuccessful) {
+                        if (!response.isSuccessful) {
                             val hasil = response.body()
-                            SweetAlertDialog(this@InputActivity, SweetAlertDialog.SUCCESS_TYPE)
-                                .setTitleText("Data berhasil disimpan!")
+                            SweetAlertDialog(this@InputActivity, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("NIM Telah Terdaftar!")
                                 .setConfirmClickListener {
                                     // tutup dialog ketika OK ditekan
                                     it.dismissWithAnimation()
@@ -64,7 +63,21 @@ class InputActivity : AppCompatActivity() {
                             binding.txtNama.text.clear()
                             binding.txtUsia.text.clear()
                             binding.txtAlamat.text.clear()
-//                            binding.txtGender.text.clear()
+                            rbPria.isChecked = false
+                            rbWanita.isChecked = false
+                        } else {
+                            val hasil = response.body()
+                            SweetAlertDialog(this@InputActivity, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("Data berhasil tersimpan!")
+                                .setConfirmClickListener {
+                                    // tutup dialog ketika OK ditekan
+                                    it.dismissWithAnimation()
+                                }
+                                .show()
+                            binding.txtNim.text.clear()
+                            binding.txtNama.text.clear()
+                            binding.txtUsia.text.clear()
+                            binding.txtAlamat.text.clear()
                             rbPria.isChecked = false
                             rbWanita.isChecked = false
                         }
