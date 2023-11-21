@@ -4,10 +4,12 @@ import com.mzulsept.zulgetdata.model.DataMahasiswa
 import com.mzulsept.zulgetdata.model.ResponseMahasiswa
 import com.mzulsept.zulgetdata.model.SubmitModel
 import retrofit2.Call
+import retrofit2.http.DELETE
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiServices {
     @GET("mahasiswa")
@@ -25,9 +27,8 @@ interface ApiServices {
         @Field("gender") gender:String,
     ): Call<SubmitModel>
 
-    @FormUrlEncoded
-    @POST("delete")
-    fun deleteMahasiswa(@Field("nim") id: Int): Call<ResponseMahasiswa>
+    @DELETE("delete/{nim}")
+    fun deleteMahasiswa(@Path("nim") id: Int): Call<SubmitModel>
 
     @FormUrlEncoded
     @POST("update")
