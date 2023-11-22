@@ -8,8 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class NetworkConfig {
-    val BASE_URL:String = "http://192.168.1.51/android-getdata/public/api/"
-    val GAMBAR_URL : String ="http://192.168.1.51/android-getdata/public/pictures/"
+    val BASE_URL:String = "http://192.168.1.13/android-getdata/public/api/"
+    val GAMBAR_URL : String ="http://192.168.1.13/android-getdata/public/pictures/"
     private fun setOkHttp(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
